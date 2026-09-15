@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+
+/* Tokens copied from frontend/src/app/globals.css (light values only — the
+   app's dark mode is dashboard-only, and this public marketing site follows
+   the same "public/family-facing pages stay light" convention). Keep these
+   in sync by eye if the brand palette changes there. */
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-bg: hsl(var(--destructive-bg));
+
+  --color-success: hsl(var(--success));
+  --color-success-bg: hsl(var(--success-bg));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+}
+
+@layer base {
+  :root {
+    --background: 38 30% 98%;
+    --foreground: 231 27% 10%;
+    --card: 38 25% 99%;
+    --card-foreground: 231 27% 10%;
+    --primary: 227 69% 46%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 20% 93%;
+    --secondary-foreground: 231 27% 10%;
+    --muted: 35 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 35 22% 88%;
+    --accent-foreground: 231 27% 10%;
+    --border: 35 20% 86%;
+    --input: 35 20% 86%;
+    --ring: 227 69% 46%;
+    --destructive: 1 62% 48%;
+    --destructive-bg: 1 60% 94%;
+    --success: 142 67% 30%;
+    --success-bg: 142 50% 95%;
+    --radius: 0.5rem;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
