@@ -2,7 +2,7 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: /
-    target-branch: main
+    target-branch: test
     schedule:
       interval: weekly
       day: monday
@@ -26,7 +26,7 @@ updates:
 
   - package-ecosystem: github-actions
     directory: /
-    target-branch: main
+    target-branch: test
     schedule:
       interval: monthly
     open-pull-requests-limit: 3
