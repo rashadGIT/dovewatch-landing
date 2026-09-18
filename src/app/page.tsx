@@ -1,8 +1,15 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ClipboardList, FolderKanban, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { Section } from '@/components/ui/section';
 import { Card } from '@/components/ui/card';
 import { ButtonLink } from '@/components/ui/button';
+
+export const metadata: Metadata = {
+  description:
+    'Digital intake, case management, task checklists, e-signatures, FTC GPL compliance, and grief follow-ups for independent funeral homes.',
+  alternates: { canonical: '/' },
+};
 
 const highlights = [
   {
