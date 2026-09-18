@@ -5,6 +5,7 @@ import { Check } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/button';
 import { appLinks } from '@/lib/app-links';
 import { getPlans, type PlanCatalogEntry } from '@/lib/plans-api';
+import { trackEvent } from '@/lib/analytics';
 
 function formatPrice(cents: number): string {
   return `$${(cents / 100).toFixed(0)}`;
@@ -84,7 +85,13 @@ export function PricingPlans() {
             <FeatureLine>Unlimited cases</FeatureLine>
             {plan.tier === 'growth' && <FeatureLine>All compliance packs included</FeatureLine>}
           </ul>
-          <ButtonLink href={appLinks.planSignup(plan.tier)} className="mt-5" external newTab>
+          <ButtonLink
+            href={appLinks.planSignup(plan.tier)}
+            className="mt-5"
+            external
+            newTab
+            onClick={() => trackEvent('plan_select_click', { tier: plan.tier })}
+          >
             Select {plan.label}
           </ButtonLink>
         </div>

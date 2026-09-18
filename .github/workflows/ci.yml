@@ -17,6 +17,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SHARED_TYPES_READ_TOKEN }}
       - run: npm run type-check
 
   lint:
@@ -29,6 +31,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SHARED_TYPES_READ_TOKEN }}
       - run: npm run lint
 
   build:
@@ -41,6 +45,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SHARED_TYPES_READ_TOKEN }}
       - run: npm run build
       - name: Report bundle size
         run: du -sh out
@@ -56,6 +62,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SHARED_TYPES_READ_TOKEN }}
       - run: npm run test -- --passWithNoTests
 
   test-e2e:
@@ -68,6 +76,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SHARED_TYPES_READ_TOKEN }}
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - name: Upload Playwright report

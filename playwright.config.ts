@@ -35,5 +35,9 @@ export default defineConfig({
         command: 'npm run dev',
         url: 'http://localhost:3100',
         reuseExistingServer: !process.env.CI,
+        // Lets the cookie-consent e2e spec exercise the real banner instead
+        // of it no-op'ing the way it does with no GA ID configured (e.g.
+        // local dev without this var set).
+        env: { ...process.env, NEXT_PUBLIC_GA_MEASUREMENT_ID: 'G-E2ETEST' },
       },
 });
