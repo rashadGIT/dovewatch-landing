@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Logo } from './logo';
 import { ButtonLink } from './ui/button';
 import { appLinks } from '@/lib/app-links';
+import { trackEvent } from '@/lib/analytics';
 
 const navLinks = [
   { href: '/features', label: 'Features' },
@@ -41,7 +42,7 @@ export function Header() {
           })}
         </nav>
         <div className="flex items-center gap-2">
-          <ButtonLink href={appLinks.login} external>
+          <ButtonLink href={appLinks.login} external onClick={() => trackEvent('sign_in_click')}>
             Sign In
           </ButtonLink>
         </div>

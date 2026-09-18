@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input, Textarea } from '@/components/ui/input';
 import { submitContactSales } from '@/lib/contact-sales-api';
+import { trackEvent } from '@/lib/analytics';
 
 // Mirrors frontend/src/app/contact-sales/page.tsx's fields and copy,
 // submitting to the same backend endpoint directly — so a visitor fills
@@ -29,6 +30,7 @@ export function ContactSalesForm() {
         message: String(data.get('message') ?? '') || undefined,
       });
       setSubmitted(true);
+      trackEvent('contact_sales_submit');
     } catch {
       setError('Something went wrong. Please try again.');
     } finally {
