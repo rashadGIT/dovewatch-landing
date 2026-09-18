@@ -12,7 +12,10 @@ import { Card } from '@/components/ui/card';
 import { ButtonLink } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Features — DoveWatch',
+  title: 'Features',
+  description:
+    'Digital intake, case management, task checklists, e-signatures, FTC GPL compliance, and grief follow-ups — everything an independent funeral home needs in one system.',
+  alternates: { canonical: '/features' },
 };
 
 const features = [

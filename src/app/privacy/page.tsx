@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import { Section } from '@/components/ui/section';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — DoveWatch',
+  title: 'Privacy Policy',
+  description: "How DoveWatch's marketing site uses analytics cookies and handles visitor data.",
+  alternates: { canonical: '/privacy' },
 };
 
 // Deliberately minimal — placeholder copy so the cookie-consent banner's

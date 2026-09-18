@@ -3,7 +3,10 @@ import { Section } from '@/components/ui/section';
 import { ContactSalesForm } from '@/components/contact-sales-form';
 
 export const metadata: Metadata = {
-  title: 'Contact — DoveWatch',
+  title: 'Contact',
+  description:
+    "Tell us about your locations and we'll help you build an Enterprise plan that fits your funeral home group.",
+  alternates: { canonical: '/contact' },
 };
 
 // Same form + endpoint as app.dovewatch.com/contact-sales (see

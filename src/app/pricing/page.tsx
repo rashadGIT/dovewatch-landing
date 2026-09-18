@@ -5,7 +5,10 @@ import { PricingPlans } from '@/components/pricing-plans';
 import { appLinks } from '@/lib/app-links';
 
 export const metadata: Metadata = {
-  title: 'Pricing — DoveWatch',
+  title: 'Pricing',
+  description:
+    'Plans sized for independent funeral homes, from a single location to a multi-location group — no per-case pricing, no confusing tiers.',
+  alternates: { canonical: '/pricing' },
 };
 
 export default function PricingPage() {
