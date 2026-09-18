@@ -17,6 +17,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SHARED_TYPES_READ_TOKEN }}
       - run: npm audit --audit-level=high --json > audit-report.json || true
       - uses: actions/upload-artifact@v4
         if: always()
