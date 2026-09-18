@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3100",
+    "dev": "concurrently -n next,open -c blue,green \"next dev --port 3100\" \"wait-on http://localhost:3100 && open-cli http://localhost:3100\"",
     "build": "next build",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
@@ -30,12 +30,15 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.1.2",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.4",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "open-cli": "^8.0.0",
     "tailwindcss": "^4.3.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^8.0.2"
   }
 }
