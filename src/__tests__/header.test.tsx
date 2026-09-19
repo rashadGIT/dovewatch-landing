@@ -16,6 +16,15 @@ describe('Header', () => {
     expect(screen.queryByRole('link', { name: 'Get Started' })).not.toBeInTheDocument();
   });
 
+  // QA #1 — the menu scrolled away with the page.
+  it('stays pinned to the top of the viewport while scrolling', () => {
+    const { container } = render(<Header />);
+    const header = container.querySelector('header');
+    expect(header?.className).toMatch(/\bsticky\b/);
+    expect(header?.className).toMatch(/\btop-0\b/);
+    expect(header?.className).toMatch(/\bz-40\b/);
+  });
+
   it('renders nav links to every page', () => {
     render(<Header />);
 
