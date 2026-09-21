@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@rashadgit/shared-types": "^0.3.0",
-    "lucide-react": "^0.475.0",
+    "lucide-react": "^1.47.0",
     "next": "^16.3.4",
     "react": "^19.2.7",
     "react-dom": "^19.3.0"
