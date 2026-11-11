@@ -68,7 +68,7 @@ jobs:
 
   test-e2e:
     name: E2E (Playwright)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -78,7 +78,14 @@ jobs:
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SHARED_TYPES_READ_TOKEN }}
-      - run: npx playwright install --with-deps chromium
+      - name: Install Playwright browsers
+        run: |
+          n=0
+          until npx playwright install --with-deps chromium; do
+            n=$((n+1)); [ "$n" -ge 3 ] && exit 1
+            echo "Playwright install failed (attempt $n), retrying in 20s..."
+            sleep 20; sudo apt-get update || true
+          done
       - run: npm run test:e2e
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
