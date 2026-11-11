@@ -81,11 +81,18 @@ jobs:
       - name: Install Playwright browsers
         run: |
           n=0
-          until npx playwright install --with-deps chromium; do
+          until npx playwright install chromium; do
             n=$((n+1)); [ "$n" -ge 3 ] && exit 1
-            echo "Playwright install failed (attempt $n), retrying in 20s..."
-            sleep 20; sudo apt-get update || true
+            echo "Playwright browser download failed (attempt $n), retrying in 20s..."
+            sleep 20
           done
+
+      # Best-effort: the runner image already ships Chromium's shared libs; apt only adds
+      # optional fonts. Don't let an Ubuntu mirror outage block CI.
+      - name: Install Playwright system deps (best-effort)
+        timeout-minutes: 5
+        continue-on-error: true
+        run: npx playwright install-deps chromium
       - run: npm run test:e2e
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
